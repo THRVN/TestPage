@@ -1,0 +1,173 @@
+html {
+  font-size: 1vmin;
+  height: 100vh;
+  overflow: hidden;
+  cursor: none;
+  touch-action: none;
+}
+
+body {
+  background-color: #17191c;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#pumpkin {
+  height: 70em;
+  width: 80em;
+  position: relative;
+}
+
+#mask {
+  width: 50%;
+  height: 82%;
+  position: absolute;
+  top: 11em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#mask:before, #mask:after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 43em;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 46%;
+}
+#mask:before {
+  left: -19em;
+}
+#mask:after {
+  right: -19em;
+}
+
+.back,
+.middle,
+.front {
+  width: 100%;
+  height: calc(100% - 10em);
+  position: absolute;
+  bottom: 0;
+}
+.back:before, .back:after,
+.middle:before,
+.middle:after,
+.front:before,
+.front:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 40em;
+  border-radius: 100%;
+}
+
+.back:before, .back:after {
+  background-color: #e06924;
+}
+.back:after {
+  right: 0;
+}
+
+.middle:before, .middle:after {
+  background-color: #e87e26;
+}
+.middle:before {
+  left: 10em;
+}
+.middle:after {
+  right: 10em;
+}
+
+.front:before {
+  background-color: #e68827;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.stem {
+  width: 8em;
+  height: 15em;
+  background-color: #844b36;
+  position: absolute;
+  left: 33em;
+  transform: rotate(-30deg);
+  border-top-left-radius: 70%;
+  border-top-right-radius: 10%;
+}
+.stem:before, .stem:after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+.stem:before {
+  background-color: inherit;
+  height: 100%;
+  width: 5em;
+  right: -0.5em;
+  top: 0.5em;
+  border-radius: 43%;
+  transform: rotate(6deg);
+}
+.stem:after {
+  background-color: #17191c;
+  height: 11em;
+  width: 6em;
+  left: -2em;
+  top: -1em;
+  border-radius: 100%;
+  transform: rotate(20deg);
+}
+
+.dot {
+  width: 1em;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  background-color: black;
+  position: absolute;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.hole,
+.cutout {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #5d2c10;
+  pointer-events: none;
+}
+
+.cutout {
+  background-color: #e87e26;
+  animation: drop 1s linear forwards;
+}
+
+@keyframes drop {
+  from {
+    top: 0;
+  }
+  to {
+    top: 20em;
+    transform: rotate(40deg);
+    opacity: 0;
+  }
+}
+#cursor {
+  position: absolute;
+  transform: translate(0, -100%) scale(-1, 1);
+  background-image: url("https://em-content.zobj.net/source/apple/419/kitchen-knife_1f52a.png");
+  background-size: contain;
+  width: 15em;
+  aspect-ratio: 1;
+  pointer-events: none;
+  z-index: 99;
+}
